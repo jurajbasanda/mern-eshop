@@ -1,37 +1,25 @@
 const products = [
+  
   {
 
-    name: 'Airpods Wireless Bluetooth Headphones',
-    image: '/images/airpods.jpg',
+    name: 'Mechanical Gaming Keyboard - Red Switch White',
+    image: '/images/keyboard.jpg',
     description:
-      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
-    brand: 'Apple',
+      'Geek Customized SK61 60% 61 Keys NKRO Gateron Optical Axis Type-C Wired RGB Backlight Mechanical Gaming Keyboard - Red Switch White',
+    brand: 'Geek',
     category: 'Electronics',
-    price: 89.99,
-    countInStock: 10,
-    rating: 4.5,
-    numReviews: 12,
-  },
-  {
-
-    name: 'iPhone 11 Pro 256GB Memory',
-    image: '/images/phone.jpg',
-    description:
-      'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life',
-    brand: 'Apple',
-    category: 'Electronics',
-    price: 599.99,
+    price: 55.3,
     countInStock: 7,
     rating: 4.0,
     numReviews: 8,
   },
   {
-    name: 'Cannon EOS 80D DSLR Camera',
-    image: '/images/camera.jpg',
+    name: 'LG LED HDR 4K Ultra HD Smart TV 42"',
+    image: '/images/lg.jpg',
     description:
-      'Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design',
-    brand: 'Cannon',
+      'Watch movies the way they should be – absolutely breathtaking. With Dolby Vision IQ, screen brightness, colour, and contrast are intelligently adjusted for content and lighting conditions. Dolby Atmos delivers three-dimensional immersive sound to make you feel as if you are right there inside the action.',
     category: 'Electronics',
+    brand: 'LG',
     price: 929.99,
     countInStock: 5,
     rating: 3,
@@ -39,39 +27,51 @@ const products = [
   },
   {
 
-    name: 'Sony Playstation 4 Pro White Version',
-    image: '/images/playstation.jpg',
+    name: 'Samsung 2020 HDR 4K Ultra HD Smart TV"',
+    image: '/images/samsungTv.jpg',
     description:
-      'The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music',
-    brand: 'Sony',
+      "See crystal clear, lifelike colour come to life with the 4K HDR picture of Samsung’s TU7100 TV. It adapts to optimise both sound and picture, and you can control all compatible devices with One Remote Control. Access a world of online entertainment via Samsung's Smart platform and it works with compatible Bixby, Google Assistant and Alexa devices.",
+    brand: 'Samsung',
     category: 'Electronics',
-    price: 399.99,
+    price: 599.99,
     countInStock: 11,
     rating: 5,
     numReviews: 12,
   },
   {
 
-    name: 'Logitech G-Series Gaming Mouse',
-    image: '/images/mouse.jpg',
+    name: 'JBL Club 950NC Wireless Bluetooth Noise-Cancelling Headphones',
+    image: '/images/jbl.jpg',
     description:
-      'Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience',
-    brand: 'Logitech',
+      "The JBL LIVE 650BTNC Wireless Bluetooth Noise-Cancelling Headphones make it easy to use voice assistants, whether that's Amazon Alexa or Google Assistant. Just tap the ear cup to activate the assistant and ask for your favourite playlist, send a message or settle an argument by searching for an answer.",
+    brand: 'JBL',
     category: 'Electronics',
-    price: 49.99,
+    price: 189.99,
+    countInStock: 10,
+    rating: 4.5,
+    numReviews: 12,
+  },
+  {
+
+    name: "Samsung Full HD Curved Monitor",
+    image: '/images/samsungCurved.jpg',
+    description: "If you find your laptop’s screen is getting a little too cramped with spread sheets or multiple tabs, check for a compatible port. Connect your device to this monitor with a previously purchased HDMI or VGA cable, then press the Windows button and “P” at the same time to enable a very handy (and stress relieving) dual screen experience.",
+    category: 'Electronics',
+    brand: 'Samsung',
+    price: 349.99,
     countInStock: 7,
     rating: 3.5,
     numReviews: 10,
   },
   {
 
-    name: 'Amazon Echo Dot 3rd Generation',
-    image: '/images/alexa.jpg',
+    name: 'Marshall Monitor II ANC Noise Cancelling Wireless',
+    image: '/images/marshall.jpg',
     description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
+      "Marshall’s Monitor II headphones deliver high-performance sound with advanced noise cancelling technology to block out external noise, so you can concentrate on the music. They last for up to 30 hours of listening time with noise cancelling on, or 45 hours without.",
     category: 'Electronics',
-    price: 29.99,
+    brand: 'Marshall',
+    price: 259.99,
     countInStock: 0,
     rating: 4,
     numReviews: 12,
