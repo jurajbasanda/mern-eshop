@@ -101,7 +101,7 @@ const ProductScreen = () => {
                   <Col>
                     <Button
                       onClick={addToCartHandler}
-                      className='btn-block'
+                      className='btn-block '
                       disabled={product.countInStock === 0}>ADD TO CART</Button>
                   </Col>
                 </Row>
