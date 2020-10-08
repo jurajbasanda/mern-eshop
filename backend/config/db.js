@@ -5,10 +5,10 @@ const connectDB = async () => {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
             useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true
         })
-        console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline)
+        console.log(`MongoDB Connected: ${conn.connection.host}`)
     }
     catch (error) {
-        console.log(`Error: ${error.messege}`.red.underline.bold)
+        console.log(`Error: ${error.messege}`)
         process.exit(1)
     }
 }

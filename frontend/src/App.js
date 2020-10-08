@@ -23,8 +23,8 @@ function App() {
           <Route path="/product/:id" component={ProductScreen}>
             <ProductScreen />
           </Route>
-          <Route path="/cart">
-            <CartScreen />{' '}
+          <Route path="/cart/:id?">
+            <CartScreen />
           </Route>
         </Container>
       </main>
