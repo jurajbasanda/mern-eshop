@@ -4,7 +4,7 @@ React.js<br/>
 Node.js<br/>
 MongoDB<br/>
 
-Open http://localhost:3000 to view it in the browser.<br/>
+Open http://localhost:3000 to view it in the browser<br/>
 Server running on port 5000
 
 ### Satart app
