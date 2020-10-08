@@ -15,22 +15,21 @@ import Loader from '../Loader'
 import Message from '../Message'
 
 const ProductScreen = () => {
+  //Router hooks
   const [qty, setQty] = useState(1)
   const { push } = useHistory()
   const { id } = useParams()
+  //Use redux
   const dispatch = useDispatch()
   const productDetails = useSelector(state => state.productDetails)
   const { loading, error, product } = productDetails
-
   useEffect(() => {
     dispatch(listProductDetails(id))
-
   }, [id, dispatch]);
-
+  //Get product and go to Cart
   const addToCartHandler = () => {
     push(`/cart/${id}?qty=${qty}`)
   }
-
   return (
     <>
       <Link className="btn btn-light my-3" to={`/`}>
@@ -102,7 +101,7 @@ const ProductScreen = () => {
                   <Col>
                     <Button
                       onClick={addToCartHandler}
-                      className='btn-block btn-secondary'
+                      className='btn-block'
                       disabled={product.countInStock === 0}>ADD TO CART</Button>
                   </Col>
                 </Row>
