@@ -23,7 +23,7 @@ const loginFromStorage = localStorage.getItem('userInfo')
 
 const initialState = {
   cart: { cartItems: cartItemsFromStorage },
-  userLogin: {userInfo:loginFromStorage}
+  userLogin: { userInfo: loginFromStorage },
 }
 
 const middleware = [thunk]
