@@ -5,20 +5,23 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../Message'
 import Loader from '../Loader'
 import FormContainer from '../FormContainer'
-import { login } from '../../actions/userAction'
+import { register } from '../../actions/userAction'
 
-const LoginScreen = () => {
+const RgisterScreen = () => {
 	//Router Hooks
 	const { search } = useLocation()
 	const { push } = useHistory()
 	//State
+	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const [confirmPassword, setConfirmPassword] = useState('')
+	const [message, setMessage] = useState(null)
 
 	const dispatch = useDispatch()
 
-	const userLogin = useSelector((state) => state.userLogin)
-	const { loading, error, userInfo } = userLogin
+	const userRegister = useSelector((state) => state.userRegister)
+	const { loading, error, userInfo } = userRegister
 
 	const redirect = search ? search.split('=')[1] : '/'
 
@@ -30,14 +33,29 @@ const LoginScreen = () => {
 
 	const submitHandler = (e) => {
 		e.preventDefault()
-		dispatch(login(email, password))
+		if (password === confirmPassword) {
+			dispatch(register(name, email, password))
+		} else {
+			setMessage('Password do not match')
+		}
 	}
 	return (
 		<FormContainer>
-			<h1>Sign In</h1>
+			<h1>Sign Up</h1>
+			{message && <Message variant='danger'>{message}</Message>}
 			{error && <Message variant='danger'>{error}</Message>}
 			{loading && <Loader />}
 			<Form onSubmit={submitHandler}>
+				<Form.Group controlId='name'>
+					<Form.Label>Name</Form.Label>
+					<Form.Control
+						type='name'
+						placeholder='Enter name'
+						autoComplete='name'
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+					></Form.Control>
+				</Form.Group>
 				<Form.Group controlId='email'>
 					<Form.Label>Email Address</Form.Label>
 					<Form.Control
@@ -59,21 +77,23 @@ const LoginScreen = () => {
 						onChange={(e) => setPassword(e.target.value)}
 					></Form.Control>
 				</Form.Group>
+				<Form.Group controlId='confirmPassword'>
+					<Form.Label>Password</Form.Label>
+					<Form.Control
+						type='password'
+						placeholder='Confirm password'
+						autoComplete='current-password'
+						value={confirmPassword}
+						onChange={(e) => setConfirmPassword(e.target.value)}
+					></Form.Control>
+				</Form.Group>
 
 				<Button type='submit' variant='primary'>
-					Sign In
+					Register
 				</Button>
 			</Form>
-			<Row className='py-3'>
-				<Col>
-					Not Registered yet ?{' '}
-					<Link to={redirect ? `/register?redirect=${redirect}` : `/register`} style={{ color: '#284a6c' }}>
-						Sign Up
-					</Link>
-				</Col>
-			</Row>
 		</FormContainer>
 	)
 }
 
-export default LoginScreen
+export default RgisterScreen
