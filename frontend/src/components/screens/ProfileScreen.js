@@ -6,7 +6,7 @@ import Message from '../Message'
 import Loader from '../Loader'
 import { getUserDetails, updateUserProfile } from '../../actions/userAction'
 
-const ProfileScreen = ({history}) => {
+const ProfileScreen = () => {
 	//Router Hooks
 	const {push} = useHistory()
 	//State
@@ -26,7 +26,7 @@ const ProfileScreen = ({history}) => {
   const { success } = userUpdateProfile
 
   useEffect(() => {
-    if(!use) {
+    if(!userInfo) {
       push('/login')
     } else {
       if (!user || !user.name) {
