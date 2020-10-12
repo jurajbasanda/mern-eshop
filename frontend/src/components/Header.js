@@ -4,13 +4,17 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../actions/userAction'
+import {useHistory} from 'react-router-dom'
 
 const Header = () => {
+	//Router Hooks
+	const {push} =useHistory()
 	const dispatch = useDispatch()
 	const userLogin = useSelector((state) => state.userLogin)
 	const { userInfo } = userLogin
 	const logoutHnadler = () => {
 		dispatch(logout())
+		push('/login')
 	}
 	return (
 		<header>
