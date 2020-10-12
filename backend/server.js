@@ -15,7 +15,17 @@ app.use(express.json())
 //Router
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+//Deploy
+const __dirname = path.resove()
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(pathjoin(__dirname, '/frontend/build')))
 
+	app.get('*', (req, res) => res.sendFile(path.resolve((__dirname, 'frontend', 'build', 'index.html'))))
+}else{
+	app.get('/',(req,res)=>{
+		res.send('API IS RUNNING')
+	})
+}
 //Errors
 app.use(notFound)
 app.use(errorHandler)
