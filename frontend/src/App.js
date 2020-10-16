@@ -14,6 +14,8 @@ import ShippingScreen from './components/screens/ShippingScreen'
 //Style
 import { Container } from 'react-bootstrap'
 import './App.css'
+import PaymentScreen from './components/screens/PaymentScreen'
+import PlaceOrderScreen from './components/screens/PlaceOrderScreen'
 
 function App() {
 	return (
@@ -21,6 +23,12 @@ function App() {
 			<Header />
 			<main className='py-3'>
 				<Container>
+					<Route path='/placeorder' component={ShippingScreen}>
+						<PlaceOrderScreen/>
+					</Route>
+					<Route path='/payment' component={ShippingScreen}>
+						<PaymentScreen/>
+					</Route>
 					<Route path='/shipping' component={ShippingScreen}>
 						<ShippingScreen/>
 					</Route>
