@@ -9,6 +9,7 @@ import CartScreen from './components/screens/CartScreen'
 import LoginScreen from './components/screens/LoginScreen'
 import RegisterScreen from './components/screens/RegisterScreen'
 import ProfileScreen from './components/screens/ProfileScreen'
+import ShippingScreen from './components/screens/ShippingScreen'
 
 //Style
 import { Container } from 'react-bootstrap'
@@ -20,6 +21,9 @@ function App() {
 			<Header />
 			<main className='py-3'>
 				<Container>
+					<Route path='/shipping' component={ShippingScreen}>
+						<ShippingScreen/>
+					</Route>
 					<Route path='/profile' component={ProfileScreen}>
 						<ProfileScreen />
 					</Route>

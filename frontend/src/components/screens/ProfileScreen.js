@@ -26,7 +26,7 @@ const ProfileScreen = () => {
   const { success } = userUpdateProfile
 
   useEffect(() => {
-    if(!userInfo) {
+    if(!user) {
       push('/login')
     } else {
       if (!user || !user.name) {
