@@ -1,50 +1,33 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../FormContainer'
-import { getUserDetails, updateUserProfile } from '../../actions/userAction'
-
+import { saveShippingAddress } from '../../actions/cartActions'
 
 const ShippingScreen = () => {
-    //Router Hooks
-    const {push} = useHistory()
-    //Satets
-	const [name, setName] = useState('')
-	const [address, setAddress] = useState('')
-	const [city, setCity] = useState('')
-	const [postCode, setPostCode] = useState('')
-	const [country, setCountry] = useState('')
-
-    const dispatch = useDispatch()
-    const userDetails = useSelector((state) => state.userDetails)
-    const { loading, error, user } = userDetails
-    useEffect(() => {
-       
-          if (!user || !user.name) {
-            dispatch(getUserDetails('profile'))
-          } else {
-            setName(user.name)
-          }
-        
-      }, [dispatch, push, user])
+	//Router Hooks
+	const { push } = useHistory()
+	const cart = useSelector((state) => state.cart)
+	const { shippingAddress } = cart
+  
+	const [address, setAddress] = useState(shippingAddress.address)
+	const [city, setCity] = useState(shippingAddress.city)
+	const [postCode, setPostCode] = useState(shippingAddress.postCode)
+	const [country, setCountry] = useState(shippingAddress.country)
+  
+	const dispatch = useDispatch()
+  
 	const submitHandler = (e) => {
-		e.preventDefault()
+	  e.preventDefault()
+	  dispatch(saveShippingAddress({ address, city, postCode, country }))
+	  push('/payment')
 	}
 	return (
 		<FormContainer>
 			<h1>Shipping</h1>
 			<Form onSubmit={submitHandler}>
-				<Form.Group>
-					<Form.Label>Name</Form.Label>
-					<Form.Control
-						type='name'
-						placeholder='Enter name'
-						autoComplete='name'
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-					></Form.Control>
-				</Form.Group>
+				
 				<Form.Group controlId='address'>
 					<Form.Label>Adress</Form.Label>
 					<Form.Control
@@ -69,11 +52,23 @@ const ShippingScreen = () => {
 				</Form.Group>
 				<Form.Group controlId='city'>
 					<Form.Label>City</Form.Label>
-					<Form.Control type='text' required placeholder='Enter city' value={city} onChange={(e) => setCity(e.target.value)}></Form.Control>
+					<Form.Control
+						type='text'
+						required
+						placeholder='Enter city'
+						value={city}
+						onChange={(e) => setCity(e.target.value)}
+					></Form.Control>
 				</Form.Group>
 				<Form.Group controlId='country'>
 					<Form.Label>Country</Form.Label>
-					<Form.Control type='text' required placeholder='Enter country' value={country} onChange={(e) => setCountry(e.target.value)}></Form.Control>
+					<Form.Control
+						type='text'
+						required
+						placeholder='Enter country'
+						value={country}
+						onChange={(e) => setCountry(e.target.value)}
+					></Form.Control>
 				</Form.Group>
 				<Button type='submit' ariant='primary'>
 					Continue
