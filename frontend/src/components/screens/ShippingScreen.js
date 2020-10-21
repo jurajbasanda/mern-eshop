@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../FormContainer'
 import CheckoutSteps from '../CheckoutSteps'
 import { saveShippingAddress } from '../../actions/cartActions'
-import { use } from '../../reducers/userReducers'
 
 const ShippingScreen = () => {
 	//Router Hooks

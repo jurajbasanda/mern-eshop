@@ -10,6 +10,9 @@ import LoginScreen from './components/screens/LoginScreen'
 import RegisterScreen from './components/screens/RegisterScreen'
 import ProfileScreen from './components/screens/ProfileScreen'
 import ShippingScreen from './components/screens/ShippingScreen'
+import OrderScreen from './components/screens/OrderScreens'
+import UsersListScreen from './components/screens/UsersListScreen'
+import ProductListScreen from './components/screens/ProductListScreen'
 
 //Style
 import { Container } from 'react-bootstrap'
@@ -23,25 +26,37 @@ function App() {
 			<Header />
 			<main className='py-3'>
 				<Container>
-					<Route path='/placeorder' component={ShippingScreen}>
+					<Route path='/order/:id' >
+						<OrderScreen/>
+					</Route>
+					<Route path='/placeorder' >
 						<PlaceOrderScreen/>
 					</Route>
-					<Route path='/payment' component={ShippingScreen}>
+					<Route path='/payment' >
 						<PaymentScreen/>
 					</Route>
-					<Route path='/shipping' component={ShippingScreen}>
+					<Route path='/shipping' >
 						<ShippingScreen/>
 					</Route>
-					<Route path='/profile' component={ProfileScreen}>
+					<Route path='/admin/userslist' >
+						<UsersListScreen />
+					</Route>
+					<Route path='/admin/orderslist' >
+						<ProductListScreen />
+					</Route>
+					<Route path='/admin/productslist' >
+						<ProductListScreen />
+					</Route>
+					<Route path='/profile' >
 						<ProfileScreen />
 					</Route>
-					<Route path='/register' component={RegisterScreen}>
+					<Route path='/register'>
 						<RegisterScreen />
 					</Route>
-					<Route path='/login' component={LoginScreen}>
+					<Route path='/login' >
 						<LoginScreen />
 					</Route>
-					<Route path='/product/:id' component={ProductScreen}>
+					<Route path='/product/:id' >
 						<ProductScreen />
 					</Route>
 					<Route path='/cart/:id?'>

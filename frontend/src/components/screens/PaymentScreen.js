@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Form, Button,Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import FormContainer from '../FormContainer'
 import CheckoutSteps from '../CheckoutSteps'
 import { savePaymentMethod } from '../../actions/cartActions'
-import { getUserDetails } from '../../actions/userAction'
 
 const PaymentScreen = () => {
 	//Router Hooks
