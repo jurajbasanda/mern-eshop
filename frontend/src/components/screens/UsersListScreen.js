@@ -42,13 +42,13 @@ const UsersListScreen = () => {
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
-        <Table striped bordered hover responsive className='table-sm'>
+        <Table striped bordered hover responsive  className='table-sm-center '>
           <thead>
             <tr>
               <th>ID</th>
               <th>NAME</th>
               <th>EMAIL</th>
-              <th>ADMIN</th>
+              <th className='text-center'>ADMIN</th>
               <th></th>
             </tr>
           </thead>
@@ -60,14 +60,14 @@ const UsersListScreen = () => {
                 <td>
                   <a href={`mailto:${user.email}`}>{user.email}</a>
                 </td>
-                <td>
+                <td className='text-center'>
                   {user.isAdmin ? (
                     <i className='fas fa-check' style={{ color: 'green' }}></i>
                   ) : (
                     <i className='fas fa-times' style={{ color: 'red' }}></i>
                   )}
                 </td>
-                <td>
+                <td className='text-center'>
                   <LinkContainer to={`/admin/user/${user._id}/edit`}>
                     <Button variant='light' className='btn-sm'>
                       <i className='fas fa-edit'></i>
