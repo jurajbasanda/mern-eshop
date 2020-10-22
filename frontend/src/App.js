@@ -13,6 +13,7 @@ import ShippingScreen from './components/screens/ShippingScreen'
 import OrderScreen from './components/screens/OrderScreens'
 import UsersListScreen from './components/screens/UsersListScreen'
 import ProductListScreen from './components/screens/ProductListScreen'
+import UserEditScreen from './components/screens/UserEditScreen'
 
 //Style
 import { Container } from 'react-bootstrap'
@@ -41,6 +42,8 @@ function App() {
 					<Route path='/admin/userslist' >
 						<UsersListScreen />
 					</Route>
+					<Route path='/admin/user/:id/edit' ><UserEditScreen/></Route>
+
 					<Route path='/admin/orderslist' >
 						<ProductListScreen />
 					</Route>
