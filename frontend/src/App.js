@@ -11,8 +11,10 @@ import RegisterScreen from './components/screens/RegisterScreen'
 import ProfileScreen from './components/screens/ProfileScreen'
 import ShippingScreen from './components/screens/ShippingScreen'
 import OrderScreen from './components/screens/OrderScreens'
+import OrderListScreen from './components/screens/OrderListScreen'
 import UsersListScreen from './components/screens/UsersListScreen'
 import ProductListScreen from './components/screens/ProductListScreen'
+import ProductEditScreen from './components/screens/ProductEditScreen'
 import UserEditScreen from './components/screens/UserEditScreen'
 
 //Style
@@ -27,45 +29,53 @@ function App() {
 			<Header />
 			<main className='py-3'>
 				<Container>
-					<Route path='/order/:id' >
-						<OrderScreen/>
+					<Route path='/order/:id'>
+						<OrderScreen />
 					</Route>
-					<Route path='/placeorder' >
-						<PlaceOrderScreen/>
+					<Route path='/placeorder'>
+						<PlaceOrderScreen />
 					</Route>
-					<Route path='/payment' >
-						<PaymentScreen/>
+					<Route path='/payment'>
+						<PaymentScreen />
 					</Route>
-					<Route path='/shipping' >
-						<ShippingScreen/>
+					<Route path='/shipping'>
+						<ShippingScreen />
 					</Route>
-					<Route path='/admin/userslist' >
+					<Route path='/admin/userlist'>
 						<UsersListScreen />
 					</Route>
-					<Route path='/admin/user/:id/edit' ><UserEditScreen/></Route>
+					<Route path='/admin/user/:id/edit'>
+						<UserEditScreen />
+					</Route>
 
-					<Route path='/admin/orderslist' >
+					<Route path='/admin/orderlist'>
+						<OrderListScreen />
+					</Route>
+					<Route path='/admin/productlist/:pageNumber'>
 						<ProductListScreen />
 					</Route>
-					<Route path='/admin/productslist' >
+					<Route path='/admin/product/:id/edit'>
+						<ProductEditScreen />
+					</Route>
+					<Route path='/admin/productlist'>
 						<ProductListScreen />
 					</Route>
-					<Route path='/profile' >
+					<Route path='/profile'>
 						<ProfileScreen />
 					</Route>
 					<Route path='/register'>
 						<RegisterScreen />
 					</Route>
-					<Route path='/login' >
+					<Route path='/login'>
 						<LoginScreen />
 					</Route>
-					<Route path='/product/:id' >
+					<Route path='/product/:id'>
 						<ProductScreen />
 					</Route>
 					<Route path='/cart/:id?'>
 						<CartScreen />
 					</Route>
-					<Route path='/search/:keyword' >
+					<Route path='/search/:keyword'>
 						<HomeScreen />
 					</Route>
 					<Route path='/' exact>
