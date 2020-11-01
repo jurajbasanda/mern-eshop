@@ -65,6 +65,9 @@ function App() {
 					<Route path='/cart/:id?'>
 						<CartScreen />
 					</Route>
+					<Route path='/search/:keyword' >
+						<HomeScreen />
+					</Route>
 					<Route path='/' exact>
 						<HomeScreen />
 					</Route>

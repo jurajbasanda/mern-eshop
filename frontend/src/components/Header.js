@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchBox from './SearchBox'
 import { LinkContainer } from 'react-router-bootstrap'
 //Style
 import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap'
@@ -25,6 +26,7 @@ const Header = () => {
 					</LinkContainer>
 					<Navbar.Toggle aria-controls='basic-navbar-nav' />
 					<Navbar.Collapse id='basic-navbar-nav'>
+					<SearchBox />
 						<Nav className='ml-auto'>
 							<LinkContainer to='/cart'>
 								<Nav.Link href='/cart'>
