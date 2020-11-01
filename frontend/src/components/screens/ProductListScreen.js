@@ -16,7 +16,7 @@ import { PRODUCT_CREATE_RESET } from '../../constants/productConstants'
 const ProductListScreen = () => {
   //Router Hooks
   const {push} = useHistory()
-  const pageNumber = useParams.pageNumber || 1
+  const pageNumber = useParams().pageNumber || 1
 
   const dispatch = useDispatch()
 

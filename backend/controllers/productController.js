@@ -1,17 +1,29 @@
 import asyncHandler from 'express-async-handler'
 import Product from '../models/productModel.js'
 
-//Fetch all products Get /api/products => Public
+//Fetch all products GET /api/products => Public
 const getProducts = asyncHandler(async (req, res) => {
+	const pageSize = 8
+	const page = Number(req.query.pageNumber) || 1
+
 	const keyword = req.query.keyword
-		? { name: { $regex: req.query.keyword,
-					$options: 'i' } }
+		? {
+				name: {
+					$regex: req.query.keyword,
+					$options: 'i',
+				},
+		  }
 		: {}
-	const products = await Product.find({...keyword})
-	res.json(products)
+
+	const count = await Product.countDocuments({ ...keyword })
+	const products = await Product.find({ ...keyword })
+		.limit(pageSize)
+		.skip(pageSize * (page - 1))
+
+	res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
-//Fetch single product Get /api/products/:id => Public
+//Fetch single product GET /api/products/:id => Public
 const getProductById = asyncHandler(async (req, res) => {
 	const product = await Product.findById(req.params.id)
 
@@ -22,7 +34,8 @@ const getProductById = asyncHandler(async (req, res) => {
 		throw new Error('Product not found')
 	}
 })
-// Delete a product DELETE /api/products/:id => Private/Admin
+
+//Delete a product DELETE /api/products/:id => Private/Admin
 const deleteProduct = asyncHandler(async (req, res) => {
 	const product = await Product.findById(req.params.id)
 
@@ -53,7 +66,7 @@ const createProduct = asyncHandler(async (req, res) => {
 	res.status(201).json(createdProduct)
 })
 
-//Update a product  PUT /api/products/:id => Private/Admin
+//Update a product PUT /api/products/:id => Private/Admin
 const updateProduct = asyncHandler(async (req, res) => {
 	const {
 		name,
@@ -122,9 +135,10 @@ const createProductReview = asyncHandler(async (req, res) => {
 		throw new Error('Product not found')
 	}
 })
-// Get top rated products GET /api/products/top =>Public
+
+//Get top rated products GET /api/products/top => Public
 const getTopProducts = asyncHandler(async (req, res) => {
-	const products = await Product.find({}).sort({ rating: -1 }).limit(3)
+	const products = await Product.find({}).sort({ rating: -1 }).limit(4)
 
 	res.json(products)
 })
@@ -132,9 +146,9 @@ const getTopProducts = asyncHandler(async (req, res) => {
 export {
 	getProducts,
 	getProductById,
-	getTopProducts,
-	updateProduct,
-	createProduct,
 	deleteProduct,
+	createProduct,
+	updateProduct,
 	createProductReview,
+	getTopProducts,
 }

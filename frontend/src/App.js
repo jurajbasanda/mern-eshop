@@ -48,16 +48,16 @@ function App() {
 						<UserEditScreen />
 					</Route>
 
-					<Route path='/admin/orderlist'>
+					<Route path='/admin/orderlist' exact>
 						<OrderListScreen />
 					</Route>
-					<Route path='/admin/productlist/:pageNumber'>
+					<Route path='/admin/productlist/:pageNumber' exact>
 						<ProductListScreen />
 					</Route>
 					<Route path='/admin/product/:id/edit'>
 						<ProductEditScreen />
 					</Route>
-					<Route path='/admin/productlist'>
+					<Route path='/admin/productlist' exact>
 						<ProductListScreen />
 					</Route>
 					<Route path='/profile'>
@@ -75,7 +75,13 @@ function App() {
 					<Route path='/cart/:id?'>
 						<CartScreen />
 					</Route>
-					<Route path='/search/:keyword'>
+					<Route path='/search/:keyword' exact>
+						<HomeScreen />
+					</Route>
+					<Route path='/page/:pageNumber' exact>
+						<HomeScreen />
+					</Route>
+					<Route path='/search/:keyword/page/:pagenumber' exact>
 						<HomeScreen />
 					</Route>
 					<Route path='/' exact>

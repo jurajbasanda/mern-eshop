@@ -17,9 +17,11 @@ import {
 } from '../../constants/orderConstants'
 
 const OrderScreen = () => {
+  //Router Hooks
     const {push} =useHistory()
     const {params} = useRouteMatch()
-  const orderId = params.id
+
+    const orderId = params.id
 
   const [sdkReady, setSdkReady] = useState(false)
 
@@ -38,7 +40,7 @@ const OrderScreen = () => {
   const { userInfo } = userLogin
 
   if (!loading) {
-    //   Calculate prices
+    //Calculate prices
     const addDecimals = (num) => {
       return (Math.round(num * 100) / 100).toFixed(2)
     }
