@@ -34,11 +34,27 @@ h2 {
 	text-align: left;
 }
 
-.carousel-caption h1 {font-size: 2rem;}
+.carousel-caption h1 {
+	font-size: 2rem;
+}
 .carousel-caption h3 {
 	color: rgb(255, 255, 255);
 }
 
 .carousel img {
 	height: 20rem;
+}
+@media screen and (max-width: 1024px) {
+	.carousel-caption {
+		top: 5%;
+		max-width: 12rem;
+	}
+}
+@media screen and (max-width: 760px) {
+	.carousel-caption {
+		display: none;
+	}
+	.carousel-caption h3 {
+		display: none;
+	}
 }
