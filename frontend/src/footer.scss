@@ -1,0 +1,108 @@
+footer{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 5vh;
+    a{text-decoration: none;
+        color: white;}
+.sub{display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-content: center;
+    label{margin:5px;
+            text-align: center;}
+    input{padding: 5px;
+            border: none;
+            width: 100%;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        
+    button{
+        background:none;
+        color: white;
+        border:1px solid white;
+            padding: 5px;
+            width: 100%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            &:hover{background-color:  rgb(160, 156, 156)}
+        }
+    }
+    ul{list-style: none;
+    a:hover{text-decoration: none;
+            color:  rgb(160, 156, 156)} }
+}
+.socialNetworks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 3vh;
+    li{margin: 1vh;}
+    i{font-size: 1.6rem;
+    &:hover{color:  rgb(160, 156, 156)}}
+}
+.madeBy{
+    align-self: flex-end;
+    a:hover{text-decoration: none;
+        color:  rgb(160, 156, 156)} 
+}
+//----------------------------------------700px----------------------------------------------------------
+@media screen and (min-width:700px){
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    padding-left: 15vh;
+    padding-right: 15vh;
+    background-color: #3e3f3a;
+    a{text-decoration: none;
+        color: white;}
+
+.footer-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.sub{
+    display: flex;
+        flex-direction: column;
+        justify-self: flex-start;
+        align-self: flex-start;
+        justify-content: center;
+        align-items: center;
+    input{padding: 5px;
+            border: none;
+            width: 350px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin:1rem;
+        }
+    button{
+        border: 1px solid white;
+        color: white;
+            padding: 5px;
+            border: none;
+            width:100px;
+            font-size: 1.2rem;
+        }
+    }
+    ul{list-style: none;
+   }
+}
+.socialNetworks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0vh;
+    li{margin: 1vh;}
+        i{font-size: 1.6rem;}
+}
+
+
+
+}
