@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import '../footer.scss'
 
 const Footer = () => {
 	const [emailAdress, setEmailAdress] = useState('')
-	const submitSubscribe = () => {
-		console.log('sub')
+	const submitSubscribe = (e) => {
+		e.preventDefault()
+		const email = emailAdress
+		axios.post(`/api/emails`,{email})
+		.then((res) => {
+			console.log(res);
+		  }, (error) => {
+			console.log(error);
+		  });
 	}
 	return (
 		<footer>
@@ -52,7 +60,7 @@ const Footer = () => {
 					<Link to='/'>Returns</Link>
 				</li>
 				<li>
-					<Link to='/'>Terms and Condidtions</Link>
+					<Link to='/'>Terms and Conditions</Link>
 				</li>
 			</ul>
 			<br />
